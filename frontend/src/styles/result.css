@@ -1,0 +1,197 @@
+/* frontend\src\styles\result.css */
+/* =========================
+   공통 배경
+   ========================= */
+.page {
+  min-height: 100vh;
+  background: #f5f0ff;
+  padding: 40px 0;
+}
+
+/* =========================
+   컨테이너
+   ========================= */
+.result-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* =========================
+   상단 헤더 (로고 + 제목 분리)
+   ========================= */
+.result-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;              /* 🔥 로고 위쪽 정렬 */
+
+  margin-top: 12px;
+  margin-bottom: 28px;
+}
+
+/* =========================
+   Kaway 로고 (위로 분리)
+   ========================= */
+.result-logo {
+  font-size: 34px;                 /* 🔥 살짝 더 큼 */
+  font-weight: 800;
+  letter-spacing: -0.6px;
+
+  color: rgba(110, 7, 58, 0.85);
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+
+  transform: translateY(-6px);     /* 🔥 타이틀보다 위 */
+}
+
+.result-logo:hover {
+  opacity: 0.85;
+}
+
+/* =========================
+   제목 (고급 그림자 + 이펙트)
+   ========================= */
+.result-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+
+  color: rgba(177, 71, 124, 0.92);
+
+  margin-top: 16px;
+  margin-bottom: 8px;
+
+  position: relative;
+
+  /* 🔥 고급스러운 그림자 (은은) */
+  text-shadow:
+    0 4px 12px rgba(177, 71, 124, 0.25),
+    0 1px 2px rgba(0, 0, 0, 0.08);
+
+  /* 등장 애니메이션 */
+  animation: titleFadeUp 0.6s ease-out both;
+}
+
+/* 고급 언더라인 */
+.result-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 14px auto 0;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(177, 71, 124, 0.15),
+    rgba(177, 71, 124, 0.6),
+    rgba(177, 71, 124, 0.15)
+  );
+}
+
+/* 타이틀 애니메이션 */
+@keyframes titleFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 가운데 정렬용 spacer */
+.header-spacer {
+  width: 48px;
+}
+
+/* =========================
+   탭 영역
+   ========================= */
+.tabs-wrap {
+  margin-top: 12px;
+  margin-bottom: 36px;
+}
+
+/* =========================
+   결과 카드
+   ========================= */
+.card {
+  background: #f1ecff;
+  border-radius: 36px;
+  padding: 40px 32px;
+
+  box-shadow:
+    0 12px 32px rgba(124, 58, 237, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   카드 내부 컨텐츠
+   ========================= */
+.result-content {
+  min-height: 260px;
+}
+
+/* =========================================
+   [모바일/태블릿 반응형] result.css 맨 아래 추가
+   ========================================= */
+@media screen and (max-width: 768px) {
+  
+  /* 1. 전체 컨테이너 여백 축소 */
+  .result-container {
+    padding: 0 20px; /* 40px -> 20px */
+  }
+
+  /* 2. 헤더 구조 변경 (로고와 제목을 세로로 배치) */
+  .result-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+
+  .header-spacer {
+    display: none; /* 공간 차지하는 요소 숨김 */
+  }
+
+  /* 3. 로고 크기 및 위치 조정 */
+  .result-logo {
+    transform: none; /* 위치 이동 해제 */
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+
+  /* 4. 제목 크기 대폭 축소 */
+  .result-title {
+    font-size: 26px; /* 40px -> 26px */
+    margin-top: 0;
+    word-break: keep-all; /* 단어 단위 줄바꿈 */
+  }
+  
+  .result-title::after {
+    margin-top: 10px; /* 밑줄 간격 조정 */
+  }
+
+  /* 5. 탭 버튼 크기 조정 */
+  .tabs-wrap {
+    margin-bottom: 24px;
+  }
+  
+  .tabs-wrap button {
+    font-size: 13px !important; /* 탭 글자 크기 살짝 줄임 */
+    padding: 10px 0 !important;
+  }
+
+  /* 6. 결과 카드 내부 여백 축소 */
+  .card {
+    padding: 30px 20px; /* 모바일 공간 확보 */
+    border-radius: 24px;
+  }
+}

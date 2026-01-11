@@ -1,0 +1,21 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+/* Vite 기본 스타일 제거 */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
